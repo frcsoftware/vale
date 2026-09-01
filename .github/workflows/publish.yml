@@ -15,27 +15,46 @@ jobs:
       GITHUB_TOKEN: ${{ github.token }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
-      - uses: pnpm/setup@v1
+        uses: actions/checkout@v4
         with:
-          runtime: "bun@1.4"
-          install: false
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          registry-url: https://registry.npmjs.org
+          cache: pnpm
 
       - name: Install development dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
-      - name: Check for new version and commit it to metafile
-        run: echo "VERSION=$(bun src/bump.ts)" >> $GITHUB_ENV
-      - name: Setup npm auth
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_PUBLISH }}" > ~/.npmrc
-      - name: Publish to npm
-        run: |
-          if [ -z "${{ env.VERSION }}" ]; then
-            echo "No valid Vale release found; skipping npm publish."
-          else
-            git config --local user.name "Github Action"
-            git config --local user.email "action@github.com"
-            git add meta.json
-            git commit -am "Bump: ${{ env.VERSION }}"
-            pnpm publish --access public --provenance --no-git-checks
-          fi
 
+      - name: Check for new version and update metafile
+        id: bump
+        run: |
+          VERSION=$(bun src/bump.ts)
+          echo "VERSION=${VERSION}" >> "$GITHUB_ENV"
+
+      - name: Commit and push version bump
+        if: env.VERSION != ''
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add meta.json package.json
+          git commit -m "Bump: ${{ env.VERSION }}"
+          git push
+
+      - name: Publish to npm
+        if: env.VERSION != ''
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH }}
+        run: pnpm publish --access public --provenance --no-git-checks
