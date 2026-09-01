@@ -26,6 +26,9 @@ jobs:
       - name: Check for new version and commit it to metafile
         run: echo "VERSION=$(bun src/bump.ts)" >> $GITHUB_ENV
       
+      - name: Setup npm auth
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_PUBLISH }}" > ~/.npmrc
+
       - name: Publish to npm
         run: |
           if [ -z "${{ env.VERSION }}" ]; then
@@ -35,6 +38,6 @@ jobs:
             git config --local user.email "action@github.com"
             git add meta.json
             git commit -am "Bump: ${{ env.VERSION }}"
-            pnpm publish --access public --provenance --no-git-checks --dry
+            pnpm publish --access public --provenance --no-git-checks
           fi
 

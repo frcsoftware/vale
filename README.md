@@ -5,7 +5,7 @@ This package basically downloads the matching version of the [vale](https://gith
 ## Installation
 
 ```bash
-npm i -D @vvago/vale
+npm i -D @frcsoftware/vale
 ```
 
 ## Usage
