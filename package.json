@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zeropaper/vale.git"
+    "url": "git+https://github.com/frcsoftware/vale.git"
   },
   "keywords": [
     "vale",
@@ -33,9 +33,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zeropaper/vale/issues"
+    "url": "https://github.com/frcsoftware/vale/issues"
   },
-  "homepage": "https://github.com/zeropaper/vale#readme",
+  "homepage": "https://github.com/frcsoftware/vale#readme",
   "dependencies": {
     "fs-extra": "^11.4.0",
     "tar": "^7.5.15",
