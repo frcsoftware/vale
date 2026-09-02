@@ -1,6 +1,6 @@
 {
   "name": "@frcsoftware/vale",
-  "version": "3.17.1",
+  "version": "3.19.0",
   "description": "Download pre-built vale binaries for your platform",
   "main": "dist/index.cjs",
   "type": "module",
