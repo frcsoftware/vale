@@ -71,7 +71,7 @@ async function downloadAndExtract() {
       throw new Error(
         "Connection was redirected outside of GitHub. Your connection may not be secure.",
       );
-    const tempDir = await mkdtemp(join(tmpdir(), "@vvago-vale-"));
+    const tempDir = await mkdtemp(join(tmpdir(), "@frcsoftware-vale-"));
     try {
       const hash = createHash("sha256");
       const tempBinPath = join(tempDir, "vale.bin");
