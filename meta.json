@@ -69,6 +69,41 @@
           "size": 11122417
         }
       }
+    },
+    "v3.20.0": {
+      "skip": false,
+      "bins": {
+        "Linux_64-bit": {
+          "url": "https://api.github.com/repos/vale-cli/vale/releases/assets/541889564",
+          "checksum": "f59e7030c5d4ace6cf915497d0d076a1699d61e876142765963237e6867c9712",
+          "size": 11736086
+        },
+        "Linux_arm64": {
+          "url": "https://api.github.com/repos/vale-cli/vale/releases/assets/541889563",
+          "checksum": "d49e89479a40dbe6a6fe44a2963abef0ee39d89453f3c7100bdd1c5dd0708961",
+          "size": 10969478
+        },
+        "macOS_64-bit": {
+          "url": "https://api.github.com/repos/vale-cli/vale/releases/assets/541889566",
+          "checksum": "8d51cbe9ca6274fade890fc943b30dc564071dcb8fd8814abce2d0dca37fbba7",
+          "size": 11725558
+        },
+        "macOS_arm64": {
+          "url": "https://api.github.com/repos/vale-cli/vale/releases/assets/541889565",
+          "checksum": "6b32df1a7d7b2ab01c07c1c4dd5fd84d775ac7a8f4101084cb5cc7df76bdc65e",
+          "size": 11300418
+        },
+        "Windows_64-bit": {
+          "url": "https://api.github.com/repos/vale-cli/vale/releases/assets/541889574",
+          "checksum": "189b3511813a428f08a2be0d7692e50dd6e90dd81b2f8e04dbfbfe42cafd9980",
+          "size": 12000344
+        },
+        "Windows_arm64": {
+          "url": "https://api.github.com/repos/vale-cli/vale/releases/assets/541889571",
+          "checksum": "397cf247252f205145c991b339031a39d02d947d97ac48e6516bb62118ed411f",
+          "size": 11142283
+        }
+      }
     }
   }
 }
