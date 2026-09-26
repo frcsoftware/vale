@@ -17,3 +17,11 @@ npx vale
 ## Why
 
 Because the ones who know, know.
+
+## Advanced
+
+If you need to use a different binary than the pre-installed one (ie: the package doesn't support your system), you can specify a custom one like so:
+
+```bash
+VALE_BIN="/path/to/vale" npx vale
+```
