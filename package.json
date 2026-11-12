@@ -38,7 +38,7 @@
   "homepage": "https://github.com/frcsoftware/vale#readme",
   "dependencies": {
     "fs-extra": "^11.4.0",
-    "tar": "^7.5.22",
+    "tar": "^7.5.23",
     "yauzl": "^3.4.0"
   },
   "devDependencies": {

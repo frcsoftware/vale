@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import {
   Binary,
   MetaFile,
-  SupportedPlatforms,
+  Platforms,
   UpstreamAsset,
 } from "@/src/types";
 import { mkdirSync, existsSync, createWriteStream } from "node:fs";
@@ -26,7 +26,7 @@ function getPlatform(): UpstreamAsset {
   const { platform, arch } = process;
   const platformKey = `${platform}-${arch}`;
   if (platformKey in platformMap) {
-    return platformMap[platformKey as SupportedPlatforms];
+    return platformMap[platformKey as Platforms];
   }
   throw new Error(
     `Unsupported platform: ${platformKey}. This is a restriction on Vale's end, if we're missing a valid platform, submit an issue.`,
