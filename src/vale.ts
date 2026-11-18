@@ -2,6 +2,12 @@
 import { spawnSync } from "node:child_process";
 import { outputBin } from "./shared";
 import { existsSync } from "fs-extra";
+
+if (process.versions.webcontainer) {
+  console.error("Vale does not support WebContainers. This is not a bug.")
+  process.exit(1)
+}
+
 if (existsSync(outputBin)) {
   const result = spawnSync(outputBin, process.argv.slice(2), {
     stdio: "inherit",

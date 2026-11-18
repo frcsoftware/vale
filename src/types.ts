@@ -152,7 +152,8 @@ export type UpstreamAsset =
   | "macOS_64-bit"
   | "macOS_arm64"
   | "Windows_64-bit"
-  | "Windows_arm64";
+  | "Windows_arm64"
+  | "wasm";
 
 export type SupportedPlatforms =
   | "linux-x64"
@@ -161,6 +162,9 @@ export type SupportedPlatforms =
   | "darwin-arm64"
   | "win32-x64"
   | "win32-arm64";
+
+export type UnsupportedPlatforms = "wasm"
+export type Platforms = SupportedPlatforms | UnsupportedPlatforms
 
 export type Binary = {
   /** URL to download the binary */
